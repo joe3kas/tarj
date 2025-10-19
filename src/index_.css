@@ -1,0 +1,39 @@
+/* 🎀 Importamos las fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* =======================================================
+   🌸 Sistema tipográfico global sin afectar estilos previos
+   ======================================================= */
+
+/* Variables para control */
+:root {
+  --font-primaria: 'Great Vibes', cursive;   /* Estilo Rosé */
+  --font-secundaria: 'Poppins', sans-serif;  /* Estilo Codec Pro */
+}
+
+/* Base general: solo tipografía */
+html, body {
+  font-family: var(--font-secundaria)!important;
+
+}
+
+/* Solo los títulos, subtítulos y nombres usan la fuente cursiva */
+h1, h2, h3, .titulo, .nombre, .titulo-romantico, .pareja {
+  font-family: var(--font-primaria) !important;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Todo el resto usa la secundaria (Codec-style) */
+p, span, div, a, li, input, button, small, strong, em {
+  font-family: var(--font-secundaria) !important;
+  font-weight: 400;
+}
+
+/* Ajuste tipográfico responsivo */
+h1 { font-size: clamp(2.2rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 5vw, 3rem); }
+p, span, li, a, button {
+  font-size: clamp(0.95rem, 2.8vw, 1.2rem);
+  line-height: 1.6;
+}

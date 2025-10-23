@@ -134,8 +134,17 @@ function Historia() {
           {/* 💬 Texto */}
           <div className="col-md-6 nopadding animate-box" style={{ background: "transparent" }}>
             <div className="couple-desc" style={{ background: "transparent" }}>
-              <h3>Nosotros</h3>
-              <p>
+              <br /><br />
+              <h1 style={{
+                fontSize: "clamp(2.5rem, 5vw, 3.2rem)",
+                fontWeight: 600,
+                marginBottom: "20px",
+                color: "#b76e79",
+                letterSpacing: "1px",
+                textAlign: "center"
+              }}
+              >Nosotros</h1>
+              <p className="tamaño">
                 Esta no es la típica historia de amor de los cuentos de hadas.
                 Somos la historia de dos personas diferentes que, contra toda lógica, encontraron en sus diferencias la forma perfecta de encajar.
                 Con paciencia, ternura y un amor que no deja de crecer, hemos aprendido a construir un “para siempre” que se alimenta de lo cotidiano, de las risas y de los sueños compartidos.
@@ -176,8 +185,8 @@ function Historia() {
         }
 
         .couple-desc p {
-          line-height: 1.6;
           color: #6e4a53;
+          font-size: clamp(1.8rem, 4.5vw, 1.8rem);
         }
 
         @media (max-width: 768px) {

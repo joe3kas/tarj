@@ -1,39 +1,144 @@
-/* 🎀 Importamos las fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+/* ======================================================
+   🔤 Fuentes globales para toda la web
+   ====================================================== */
 
-/* =======================================================
-   🌸 Sistema tipográfico global sin afectar estilos previos
-   ======================================================= */
+/* ✅ IMPORT DEBE IR ARRIBA DEL TODO */
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap");
 
-/* Variables para control */
+/* ======================================================
+   Font Face locales
+   ====================================================== */
+
+/* Fuente primaria: Amoresa (.otf) */
+@font-face {
+  font-family: "Amoresa";
+  src: url("/fonts/amoresa-regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fuente secundaria: Vivaldi (.ttf) */
+@font-face {
+  font-family: "VIVALDII";
+  src: url("/fonts/VIVALDII.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ======================================================
+   Variables globales
+   ====================================================== */
+
 :root {
-  --font-primaria: 'Great Vibes', cursive;   /* Estilo Rosé */
-  --font-secundaria: 'Poppins', sans-serif;  /* Estilo Codec Pro */
+  --font-primary: "Crimson Text", serif;
+  --font-secondary: "Amoresa", serif;
+  --font-tertiary: "Vivaldi", cursive;
+
+  --color-bg: #fff;
+  --color-text: #000;
 }
 
-/* Base general: solo tipografía */
+/* ======================================================
+   Reset básico
+   ====================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html, body {
-  font-family: var(--font-secundaria)!important;
-
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
-/* Solo los títulos, subtítulos y nombres usan la fuente cursiva */
-h1, h2, h3, .titulo, .nombre, .titulo-romantico, .pareja {
-  font-family: var(--font-primaria) !important;
-  font-weight: 400;
-  letter-spacing: 0.3px;
+
+/* ======================================================
+   Tipografía por tipo de elemento
+   ====================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary)!important;
+  letter-spacing: 0.5px;
+  justify-content: center;
 }
 
-/* Todo el resto usa la secundaria (Codec-style) */
-p, span, div, a, li, input, button, small, strong, em {
-  font-family: var(--font-secundaria) !important;
-  font-weight: 400;
+p, span, li, a {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  justify-content: center;
+}
+/* ======================================================
+   Estilos globales adicionales
+   ====================================================== */
+   #fh5co-hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
 }
 
-/* Ajuste tipográfico responsivo */
-h1 { font-size: clamp(2.2rem, 6vw, 4rem); }
-h2 { font-size: clamp(1.8rem, 5vw, 3rem); }
-p, span, li, a, button {
-  font-size: clamp(0.95rem, 2.8vw, 1.2rem);
-  line-height: 1.6;
+#fh5co-hero video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+#fh5co-hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+#fh5co-hero .slider-text {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#fh5co-hero .slider-text-inner h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+#fh5co-hero .slider-text-inner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+#fh5co-hero .slider-text-inner p {
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  #fh5co-hero .slider-text-inner h1 { font-size: 2.8rem; }
+  #fh5co-hero .slider-text-inner h2 { font-size: 2rem; }
+  #fh5co-hero .slider-text-inner p { font-size: 1.4rem; }
+}
+
+
+.btn-arriba {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+  z-index: 9999 !important;
 }

@@ -1,10 +1,8 @@
 import React from "react";
 import arturo from "/images/30 fotos/arturo.png";
 import angie from "/images/30 fotos/angie.png";
-import flor1 from "/images/flores/flor14.png";
-import flor3 from "/images/flores/flor12.png";
-import flor2 from "/images/flores/flor14.png";
-import flor4 from "/images/flores/flor15.png";
+import flor3 from "/images/flores/flor6.png";
+import flor4 from "/images/flores/flor6.png";
 
 function Amor() {
   return (
@@ -29,7 +27,7 @@ function Amor() {
           bottom: "0px",
           left: "-65px",
           width: "300px",
-          opacity: "0.9",
+          opacity: "0.70",
           transform: "rotate(-8deg)",
           filter: "drop-shadow(0 4px 5px rgba(0,0,0,0.1))",
           pointerEvents: "none",
@@ -44,8 +42,8 @@ function Amor() {
           bottom: "-18px",
           right: "-60px",
           width: "300px",
-          opacity: "0.9",
-          transform: "rotate(5deg)",
+          opacity: "0.70",
+          transform: "rotate(15deg)",
           filter: "drop-shadow(0 4px 5px rgba(0,0,0,0.1))",
           pointerEvents: "none",
         }}
@@ -105,7 +103,6 @@ function Amor() {
         }
 
         .corazon {
-          transform: rotate(-45deg);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -181,7 +178,7 @@ function Amor() {
           color: #8b4e4e;
           margin-bottom: 6px;
           font-weight: 600;
-          font-size: 26px;
+          font-size: 20px;
         }
 
         .texto-inferior p {

@@ -36,196 +36,162 @@ function CuentaRegresiva() {
   const formato = (n) => String(n ?? 0).padStart(2, "0");
 
   return (
-    <section
-      id="contador"
-      className="relative text-center"
-      style={{
-        background: "linear-gradient(180deg, #fff9f8 0%, #fbe8e6 100%)",
-        padding: "80px 20px",
-        position: "relative",
-        overflow: "visible", // 👈 Permite ver las flores fuera sin romper layout
-      }}
-    >
-      {/* 🌸 Flores decorativas detrás del contenido */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          overflow: "visible",
-          pointerEvents: "none",
-          zIndex: 0, // 👈 detrás del contenido
-        }}
-      >
-        <img
-          src="/images/flores/flor15.png"
-          alt="Flor superior izquierda"
-          style={{
-            position: "absolute",
-            top: "-60px", // sobresale sin expandir el section
-            left: "-40px",
-            width: "200px",
-            opacity: "0.85",
-            transform: "rotate(-5deg)",
-            filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.1))",
-          }}
-        />
-        <img
-          src="/images/flores/flor12.png"
-          alt="Flor inferior derecha"
-          style={{
-            position: "absolute",
-            bottom: "-60px", // sobresale hacia abajo
-            right: "-40px",
-            width: "220px",
-            opacity: "0.9",
-            transform: "rotate(5deg)",
-            filter: "drop-shadow(0 4px 5px rgba(0,0,0,0.1))",
-          }}
-        />
-      </div>
+    <section id="contador" className="relative text-center seccion-contador">
+      {/* 🌸 Flores decorativas */}
+      <img
+        src="/images/flores/flor3.png"
+        alt="Flor superior izquierda"
+        className="flor-izq"
+      />
+      <img
+        src="/images/flores/flor1.png"
+        alt="Flor inferior derecha"
+        className="flor-der"
+      />
 
       {/* 💕 Contenido principal */}
-      <div
-        className="relative"
-        style={{
-          maxWidth: "980px",
-          margin: "0 auto",
-          color: "#7a4a4a",
-          position: "relative",
-          zIndex: 5, // 👈 garantiza que el texto esté sobre las flores
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "clamp(2rem, 5vw, 3.2rem)",
-            fontWeight: 600,
-            marginBottom: "20px",
-            color: "#b76e79",
-            letterSpacing: "1px",
-          }}
-        >
-          ¡Estás invitado!
-        </h2>
+      <div className="contenido-contador">
+        <h2 className="titulo-contador">¡Estás invitado!</h2>
 
-        <p
-          style={{
-            fontSize: "clamp(1.1rem, 3.4vw, 1.6rem)",
-            color: "#805b5b",
-            lineHeight: 1.6,
-            marginBottom: "35px",
-            maxWidth: "600px",
-            marginInline: "auto",
-          }}
-        >
+        <p className="texto-contador">
           Nos encantaría que formaras parte de este momento tan especial para
-          nosotros. <br />
-          <span style={{ fontWeight: "500" }}>Ya faltan...</span>
+          nosotros.
         </p>
 
-        {/* ⏳ Contador */}
-        <div
-          className="contador-row"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "stretch",
-            flexWrap: "nowrap",
-            gap: "12px",
-            width: "100%",
-          }}
-        >
+        {/* ⏳ Bloques del contador */}
+        <div className="bloques-contador">
           {[
             ["DÍAS", formato(tiempoRestante.dias)],
             ["HORAS", formato(tiempoRestante.horas)],
             ["MINUTOS", formato(tiempoRestante.minutos)],
             ["SEGUNDOS", formato(tiempoRestante.segundos)],
           ].map(([label, value]) => (
-            <div
-              key={label}
-              className="contador-bloque"
-              style={{
-                flex: "1 1 0",
-                minWidth: "60px",
-                background: "rgba(255,255,255,0.85)",
-                border: "1px solid rgba(214,180,163,0.35)",
-                borderRadius: "12px",
-                padding: "12px 8px",
-                boxShadow: "0 6px 15px rgba(0,0,0,0.05)",
-              }}
-            >
-              <h3
-                style={{
-                  fontSize: "clamp(1.4rem, 6vw, 2.6rem)",
-                  margin: "0 0 6px 0",
-                  color: "#a86c6c",
-                  fontWeight: 700,
-                  lineHeight: 1,
-                }}
-              >
-                {value}
-              </h3>
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(0.8rem, 2.5vw, 1rem)",
-                  color: "#805b5b",
-                  fontStyle: "italic",
-                }}
-              >
-                {label}
-              </p>
+            <div key={label} className="bloque">
+              <h3>{value}</h3>
+              <p>{label}</p>
             </div>
           ))}
         </div>
 
         {/* 🌸 Línea decorativa */}
-        <div
-          style={{
-            width: "70px",
-            height: "2px",
-            background: "#d6bba3",
-            margin: "40px auto 0",
-            borderRadius: "3px",
-          }}
-        />
+        <div className="linea" />
       </div>
 
-      {/* 🎨 CSS global de control */}
+      {/* 🎨 Estilos */}
       <style>{`
-        html, body {
-          overflow-x: hidden !important; /* 🚫 sin scroll horizontal */
-        }
-
-        #contador {
+        .seccion-contador {
           position: relative;
-          overflow: visible !important; /* 👈 permite que las flores salgan visualmente */
+          background: linear-gradient(180deg, rgba(255,249,248,0.95) 0%, rgba(251,232,230,0.85) 100%);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          padding: 100px 20px;
+          overflow: hidden;
           z-index: 0;
         }
 
-        /* 🌸 Ajuste móvil */
+        .flor-izq,
+        .flor-der {
+          position: absolute;
+          width: 200px;
+          opacity: 0.9;
+          filter: drop-shadow(0 3px 5px rgba(0,0,0,0.1));
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .flor-izq {
+          top: -60px;
+          left: -40px;
+          transform: rotate(-5deg);
+        }
+
+        .flor-der {
+          bottom: -60px;
+          right: -40px;
+          transform: rotate(5deg);
+        }
+
+        .contenido-contador {
+          max-width: 900px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 5;
+          color: #7a4a4a;
+        }
+
+        .titulo-contador {
+          font-size: clamp(2.8rem, 6vw, 3.6rem);
+          color: #b76e79;
+          margin-bottom: 20px;
+        }
+
+        .texto-contador {
+          font-size: 1.8rem;
+          color: #805b5b;
+          max-width: 600px;
+          margin: 0 auto 40px;
+          line-height: 1.2;
+        }
+
+        .bloques-contador {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+
+        .bloque {
+          flex: 1 1 100px;
+          min-width: 70px;
+          background: rgba(255, 255, 255, 0.7);
+          border: 1px solid rgba(214, 180, 163, 0.35);
+          border-radius: 14px;
+          padding: 14px 10px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+          backdrop-filter: blur(6px);
+        }
+
+        .bloque h3 {
+          font-size: clamp(2.8rem, 4.5vw, 2.8rem);
+          margin: 0;
+          color: #a86c6c;
+          font-weight: 700;
+          line-height: 1.1;
+        }
+
+        .bloque p {
+          margin: 4px 0 0;
+          font-size: clamp(1.2rem, 2vw, 1rem);
+          color: #805b5b;
+          font-style: italic;
+        }
+
+        .linea {
+          width: 70px;
+          height: 2px;
+          background: #d6bba3;
+          margin: 40px auto 0;
+          border-radius: 3px;
+        }
+
         @media (max-width: 768px) {
-          #contador img[alt="Flor superior izquierda"] {
-            width: 130px !important;
-            top: -40px !important;
-            left: -20px !important;
-            opacity: 0.9 !important;
+          .seccion-contador {
+            padding: 70px 20px;
           }
-          #contador img[alt="Flor inferior derecha"] {
-            width: 150px !important;
-            bottom: -40px !important;
-            right: -20px !important;
-            opacity: 0.9 !important;
-          }
+          .flor-izq, .flor-der {
+            width: 140px;
+            opacity: 0.85;
+          },
+ 
         }
 
         @media (max-width: 480px) {
-          #contador {
-            padding: 50px 15px;
+          .seccion-contador {
+            padding: 60px 15px;
           }
-          #contador img[alt="Flor superior izquierda"],
-          #contador img[alt="Flor inferior derecha"] {
-            width: 100px !important;
-            opacity: 0.8 !important;
+          .flor-izq, .flor-der {
+            width: 100px;
+            opacity: 0.8;
           }
         }
       `}</style>

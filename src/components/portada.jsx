@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Video from "/video/video-intro.mp4"; // ruta correcta a tu video
+import Video from "/video/video-intro.mp4"; // Asegúrate de que la ruta sea correcta
 
 function Portada() {
   const videoRef = useRef(null);
@@ -12,7 +12,6 @@ function Portada() {
         try {
           await video.play();
         } catch (err) {
-          // Si el navegador bloquea autoplay, espera una interacción del usuario
           const onUserAction = async () => {
             try {
               await video.play();
@@ -31,85 +30,111 @@ function Portada() {
   return (
     <div id="fh5co-wrapper">
       <div id="fh5co-page">
-        <div id="home" className="fh5co-hero relative" data-section="home">
+        <section id="home" className="fh5co-hero relative" data-section="home">
           {/* 🎥 Video de fondo */}
-          <video
-            ref={videoRef}
-            className="absolute top-0 left-0 w-full h-full object-cover z-0"
-            src={Video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          />
+          <div className="video-container">
+            <video
+              ref={videoRef}
+              src={Video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="video-bg"
+            />
+          </div>
 
-          {/* 🖤 Capa oscura */}
-          <div className="fh5co-overlay absolute inset-0 z-10 opacity-60 bg-black"></div>
+          {/* 🖤 Capa oscura sutil */}
+          <div className="fh5co-overlay"></div>
 
-          {/* 💍 Contenido */}
-          <div
-            className="fh5co-cover text-center relative flex items-center justify-center z-30"
-            style={{ height: "100dvh" }}
-            data-stellar-background-ratio="0.5"
-          >
-            <div className="display-t w-full">
-              <div className="display-tc align-middle">
-                <div className="container">
-                  <div className="col-md-10 col-md-offset-1">
-                    <div
-                      className="animate-box"
-                      style={{ color: "white", position: "relative", zIndex: 50 }}
-                    >
-                      <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                        Nuestra Boda
-                      </h1>
-                      <h2 className="text-2xl md:text-4xl mb-2 font-light">
-                        Arturo &amp; Angie
-                      </h2>
-                      <div
-                        style={{
-                          marginTop: "35px",
-                          color: "rgba(255, 255, 255, 0.9)",
-                          textShadow: "0 2px 6px rgba(0,0,0,0.25)",
-                        }}
-                      >
-                        <div
-                          style={{
-                            height: "1px",
-                            width: "60px",
-                            background: "rgba(255, 255, 255, 0.6)",
-                            margin: "0 auto 12px",
-                          }}
-                        ></div>
+          {/* 💍 Contenido centrado */}
+          <div className="fh5co-cover text-center relative z-30">
+            <div className="container h-100 d-flex flex-column justify-content-center align-items-center">
+              <div className="animate-box text-white">
+                <h2 className="fw-bold display-4 mb-3">Nuestra Boda</h2>
+                <br />
+                <h1 className="fw-light display-5 mb-4">Arturo &amp; Angie</h1>
 
-                        <p
-                          style={{
-                            fontSize: "1.6rem",
-                            fontStyle: "italic",
-                            letterSpacing: "1px",
-                          }}
-                        >
-                          05 · Diciembre · 2025
-                        </p>
-
-                        <div
-                          style={{
-                            height: "1px",
-                            width: "60px",
-                            background: "rgba(255, 255, 255, 0.6)",
-                            margin: "12px auto 0",
-                          }}
-                        ></div>
-                      </div>
-
-                    </div>
-                  </div>
+                {/* 🌸 Separador + fecha */}
+                <div className="separador">
+                  <div className="linea"></div>
+                  <p className="fecha">05 · Diciembre · 2025</p>
+                  <div className="linea"></div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* 🌷 Estilos */}
+        <style>{`
+          .video-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+          }
+
+          .video-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .fh5co-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 10;
+          }
+
+          .fh5co-cover {
+            position: relative;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+          }
+
+          .separador {
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+          }
+
+          #home .linea {
+            height: 1px;
+            width: 60px;
+            background: rgba(255, 255, 255, 0.7);
+            margin: 0 auto 10px;
+             margin: 7px auto 0;
+          }
+
+          .fecha {
+            font-size: 1.5rem;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin: 0;
+          }
+
+          @media (max-width: 768px) {
+          .hh1{
+          font-size: 3rem !important;
+          }
+            .fh5co-cover h1 {
+              font-size: 5rem !important;
+            }
+            .fh5co-cover h2 {
+              font-size: 3rem !important;
+               padding-top: 10px;
+            }
+            .fecha {
+              font-size: 2rem;
+            }
+          }
+        `}</style>
       </div>
     </div>
   );

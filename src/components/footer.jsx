@@ -1,7 +1,5 @@
-import React from "react";
-import flor1 from "/images/flores/flor1.png";
-import flor2 from "/images/flores/flor2.png";
-import flor3 from "/images/flores/flor3.png";
+import flor1 from "/images/flores/flor6.png";
+import flor3 from "/images/flores/flor6.png";
 
 function Footer() {
   return (
@@ -12,20 +10,20 @@ function Footer() {
         background:
           "linear-gradient(180deg, rgba(255, 246, 248, 0.95) 0%, rgba(253, 235, 238, 1) 100%)",
         borderTop: "1px solid rgba(214, 180, 163, 0.3)",
-        padding: "100px 0 90px",
+        padding: "100px 0 30px", // 🔹 antes era 90px abajo, reducido para quitar espacio
         textAlign: "center",
       }}
     >
       {/* 🌸 Flores PNG Vintage en las esquinas */}
       <img
-        src={flor1}
+        src={flor3}
         alt="Flor esquina superior izquierda"
         style={{
           position: "absolute",
           top: "-40px",
           left: "-40px",
           width: "200px",
-          opacity: "0.85",
+          opacity: "0.50",
           filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.1))",
           transform: "rotate(-5deg)",
           pointerEvents: "none",
@@ -40,7 +38,7 @@ function Footer() {
           top: "-30px",
           right: "-30px",
           width: "200px",
-          opacity: "0.85",
+          opacity: "0.50",
           filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.1))",
           transform: "rotate(8deg)",
           pointerEvents: "none",
@@ -55,7 +53,7 @@ function Footer() {
           bottom: "-60px",
           left: "-60px",
           width: "210px",
-          opacity: "0.9",
+          opacity: "0.50",
           transform: "rotate(-8deg)",
           filter: "drop-shadow(0 4px 5px rgba(0,0,0,0.1))",
           pointerEvents: "none",
@@ -70,7 +68,7 @@ function Footer() {
           bottom: "-70px",
           right: "-50px",
           width: "220px",
-          opacity: "0.9",
+          opacity: "0.50",
           transform: "rotate(5deg)",
           filter: "drop-shadow(0 4px 5px rgba(0,0,0,0.1))",
           pointerEvents: "none",
@@ -99,8 +97,10 @@ function Footer() {
             marginBottom: "12px",
           }}
         >
-          Gracias por ser parte de este día tan especial
+         Agradecemos que nos acompañes en esta fecha memorable.
         </h3>
+
+        <br />
 
         <h2
           style={{
@@ -112,14 +112,13 @@ function Footer() {
         >
           Arturo &amp; Angie
         </h2>
-
+<br /><br /><br />
         <p
           style={{
             color: "#9a6d76",
-            fontSize: "17px",
             fontStyle: "italic",
-            marginTop: "18px",
-            lineHeight: "1.6",
+            marginTop: "-18px",
+            lineHeight: "1.2",
           }}
         >
           “El amor verdadero no tiene final feliz,  
@@ -131,7 +130,7 @@ function Footer() {
             width: "70px",
             height: "2px",
             background: "#d6bba3",
-            margin: "25px auto",
+            margin: "25px auto 0", // 🔹 quitamos margen inferior extra
             borderRadius: "3px",
           }}
         ></div>
@@ -141,9 +140,10 @@ function Footer() {
             color: "#b56d7d",
             fontSize: "14px",
             fontStyle: "italic",
+            marginTop: "10px", // 🔹 ajustado para cerrar sin espacio sobrante
           }}
         >
-          © {new Date().getFullYear()} Con todo nuestro amor 💞
+          © {new Date().getFullYear()} joe3kas stillo. All rights reserved.
         </p>
       </div>
 
@@ -172,19 +172,18 @@ function Footer() {
           }
 
           footer {
-            padding: 80px 0 70px !important;
+            padding: 80px 0 40px !important; /* 🔹 menos padding inferior */
           }
 
           footer h2 {
-            font-size: 38px !important;
+            font-size: 25px !important;
           }
 
           footer h3 {
-            font-size: 20px !important;
+            font-family: 'Crimson Text', serif;
           }
 
           footer p {
-            font-size: 15px !important;
           }
         }
       `}</style>
